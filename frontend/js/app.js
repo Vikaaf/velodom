@@ -6,6 +6,7 @@
 
 import { homePage } from './pages/home.js';
 import { catalogPage } from './pages/catalog.js';
+import { bikePage } from './pages/bike.js';
 import { initQuiz } from './components/quiz.js';
 import { addToCart, updateCartCount } from './cart.js';
 
@@ -35,7 +36,7 @@ const routes = [
       initQuiz(document.getElementById('quiz-root'));
     },
   },
-  { path: /^\/bike\/(\d+)$/, page: stub('Велосипед', 'Здесь будет карточка товара.') },
+  { path: /^\/bike\/(\d+)$/, page: id => bikePage(app, id) },
   { path: /^\/cart$/, page: stub('Корзина', 'Корзину сделаем на следующем этапе.') },
 ];
 

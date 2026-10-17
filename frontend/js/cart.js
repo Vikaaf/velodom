@@ -1,5 +1,6 @@
 // Корзина хранится в браузере (localStorage), пока пользователь не оформит заказ.
-// Формат: [{ id: 1, qty: 2 }, ...]
+// Формат: [{ id: 1, size: 'M', color: 'чёрный', qty: 2 }, ...]
+// size и color могут быть null, если товар добавили из каталога без выбора.
 
 const KEY = 'velodom-cart';
 
@@ -12,13 +13,14 @@ function saveCart(cart) {
   updateCartCount();
 }
 
-export function addToCart(id) {
+// один и тот же велосипед разного размера или цвета — это разные строки корзины
+export function addToCart(id, { size = null, color = null, qty = 1 } = {}) {
   const cart = getCart();
-  const item = cart.find(entry => entry.id === id);
+  const item = cart.find(entry => entry.id === id && entry.size === size && entry.color === color);
   if (item) {
-    item.qty += 1;
+    item.qty += qty;
   } else {
-    cart.push({ id, qty: 1 });
+    cart.push({ id, size, color, qty });
   }
   saveCart(cart);
 }

@@ -1,6 +1,6 @@
 import express from 'express';
 import path from 'node:path';
-import { db } from './db/db.js';
+import bikesRouter from './routes/bikes.js';
 
 const app = express();
 const PORT = 3000;
@@ -12,6 +12,7 @@ app.use(express.static(path.join(import.meta.dirname, '..', 'frontend')));
 app.get('/api/health', (req, res) => {
     res.json({ status: 'ok' });
 });
+app.use('/api/bikes', bikesRouter);
 
 app.listen(PORT, () => {
     console.log(`Сервер запущен: http://localhost:${PORT}`);

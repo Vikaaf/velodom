@@ -1,9 +1,11 @@
 // Простой роутер для SPA: смотрим на часть адреса после # и показываем нужную страницу.
 // #/            → главная
 // #/catalog     → каталог
+// #/catalog?type=city&sort=price_asc → каталог с фильтрами
 // #/bike/5      → карточка велосипеда с id 5
 
 import { homePage } from './pages/home.js';
+import { catalogPage } from './pages/catalog.js';
 import { initQuiz } from './components/quiz.js';
 import { addToCart, updateCartCount } from './cart.js';
 
@@ -25,7 +27,7 @@ function stub(title, text) {
 
 const routes = [
   { path: /^\/$/, page: () => homePage(app) },
-  { path: /^\/catalog$/, page: stub('Каталог', 'Здесь будет каталог с фильтрами.') },
+  { path: /^\/catalog$/, page: query => catalogPage(app, query) },
   {
     path: /^\/quiz$/,
     page: () => {
@@ -38,12 +40,14 @@ const routes = [
 ];
 
 function router() {
-  const path = location.hash.slice(1) || '/';   // '#/catalog' → '/catalog'
+  const hash = location.hash.slice(1) || '/';   // '#/catalog?type=city' → '/catalog?type=city'
+  const [path, queryString] = hash.split('?');   // → '/catalog' и 'type=city'
+  const query = new URLSearchParams(queryString);
   const route = routes.find(r => r.path.test(path));
 
   if (route) {
     const params = path.match(route.path).slice(1); // то, что в скобках регулярки, например id
-    route.page(...params);
+    route.page(...params, query);                   // query — параметры после «?»
   } else {
     stub('Страница не найдена', 'Проверьте адрес или вернитесь на главную.')();
   }

@@ -15,6 +15,11 @@ export function getBikes(params = {}) {
   return request(`/api/bikes?${query}`);
 }
 
+// варианты для фильтров каталога: бренды, размеры рам, диапазон цен
+export function getFilters() {
+  return request('/api/bikes/filters');
+}
+
 export function getBike(id) {
   return request(`/api/bikes/${id}`);
 }

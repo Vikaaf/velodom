@@ -78,6 +78,11 @@ img {
   transition: background-color 0.2s, border-color 0.2s;
 }
 
+.btn--small {
+  padding: 11px 20px;
+  font-size: 14px;
+}
+
 .btn--primary {
   background: var(--accent);
   color: var(--white);
@@ -332,11 +337,32 @@ main {
   text-transform: uppercase;
 }
 
+.bike-card__badge--sale {
+  background: #E65745;
+}
+
 .bike-card__info {
   display: flex;
   flex-direction: column;
   gap: 7px;
   flex: 1;
+}
+
+.bike-card__meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+}
+
+.bike-card__brand {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+}
+
+.bike-card__rating {
+  color: #F2A63B;
 }
 
 .bike-card__name {

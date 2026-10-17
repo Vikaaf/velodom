@@ -1,10 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <title>Велодом</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Велодом — подбор велосипеда</title>
+  <link rel="icon" href="/images/logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-<h1>Велодом</h1>
+  <header class="header">
+    <div class="container header__inner">
+      <a class="logo" href="#/">
+        <img src="/images/logo.svg" alt="" width="36" height="44">
+        <span>Велодом</span>
+      </a>
+
+      <nav class="nav">
+        <a class="nav__link" href="#/">Главная</a>
+        <a class="nav__link" href="#/catalog">Каталог</a>
+        <a class="nav__link" href="#/quiz">Опрос</a>
+        <a class="nav__link" href="#/cart">Корзина</a>
+      </nav>
+
+      <div class="header__contacts">
+        <div class="header__phone">
+          <a href="tel:+78005553535">+7 800 555-35-35</a>
+          <span>Ежедневно 9:00–21:00</span>
+        </div>
+        <a class="btn btn--primary" href="#/cart">Корзина · <span id="cart-count">0</span></a>
+      </div>
+    </div>
+  </header>
+
+  <!-- сюда JavaScript подставляет содержимое текущей страницы -->
+  <main id="app"></main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__content">
+        <div class="footer__about">
+          <div class="footer__logo">Вело дом</div>
+          <p>Помогаем выбрать велосипед, на котором действительно хочется ездить.</p>
+          <a class="footer__phone" href="tel:+78005551824">+7 800 555-18-24</a>
+          <a href="mailto:hello@velodom.ru">hello@velodom.ru</a>
+        </div>
+        <div class="footer__col">
+          <span class="footer__title">Магазин</span>
+          <a href="#/catalog">Каталог</a>
+          <a href="#/catalog">Популярные велосипеды</a>
+          <a href="#/">Доставка и оплата</a>
+        </div>
+        <div class="footer__col">
+          <span class="footer__title">Помощь</span>
+          <a href="#/quiz">Пройти опрос</a>
+          <a href="#/">Гарантия и возврат</a>
+          <a href="#/">Поддержка</a>
+        </div>
+        <div class="footer__col">
+          <span class="footer__title">Мы в сети</span>
+          <a href="#/">ВКонтакте</a>
+          <a href="#/">Telegram</a>
+          <a href="#/">YouTube</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2026 Вело дом</span>
+        <a href="#/">Политика конфиденциальности</a>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="/js/app.js"></script>
 </body>
 </html>

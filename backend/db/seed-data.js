@@ -1,4 +1,5 @@
 // Тестовые данные каталога «Велодом».
+// Фото взяты из макета: 4 снимка на разные типы велосипедов, лежат в frontend/images/bikes.
 // Названия моделей и цены частично взяты из макета, остальное придумано для проверки фильтров и опроса.
 
 // Типовые размеры рам взрослых велосипедов и рост, которому они подходят
@@ -29,7 +30,7 @@ export const bikes = [
         model_year: 2026, weight: 13.6, rating: 4.8, reviews_count: 24, badge: 'hit', popularity: 98,
         sizes: [{ ...S, in_stock: 1 }, { ...M, min_height: 168, max_height: 178, in_stock: 1 }, { ...L, in_stock: 1 }, { ...XL, in_stock: 0 }],
         colors: [darkGreen, graphite, black],
-        images: ['/images/bikes/alp-2932-26-1.jpg', '/images/bikes/alp-2932-26-2.jpg', '/images/bikes/alp-2932-26-3.jpg'],
+        images: ['/images/bikes/mtb-green.jpg'],
         specs: [
             ['Общие', 'Тип', 'Горный велосипед'],
             ['Общие', 'Назначение', 'Трейл, кросс-кантри'],
@@ -67,7 +68,7 @@ export const bikes = [
         model_year: 2025, weight: 15.2, rating: 4.6, reviews_count: 41, badge: 'hit', popularity: 95,
         sizes: [{ ...S, in_stock: 1 }, { ...M, in_stock: 1 }, { ...L, in_stock: 1 }],
         colors: [black, blue, red],
-        images: ['/images/bikes/stl-nav500-26-1.jpg'],
+        images: ['/images/bikes/mtb-graphite.jpg'],
         specs: [
             ['Общие', 'Назначение', 'Прогулки, лёгкое бездорожье'],
             ['Общие', 'Вес', '15,2 кг'],
@@ -89,7 +90,7 @@ export const bikes = [
         model_year: 2026, weight: 14.1, rating: 4.7, reviews_count: 15, badge: 'new', popularity: 80,
         sizes: [{ ...M, in_stock: 1 }, { ...L, in_stock: 1 }, { ...XL, in_stock: 1 }],
         colors: [graphite, orange],
-        images: ['/images/bikes/fwd-apa29-26-1.jpg'],
+        images: ['/images/bikes/mtb-green.jpg'],
         specs: [
             ['Общие', 'Назначение', 'Трейл'],
             ['Общие', 'Вес', '14,1 кг'],
@@ -110,7 +111,7 @@ export const bikes = [
         model_year: 2025, weight: 14.8, rating: 4.4, reviews_count: 9, badge: null, popularity: 60,
         sizes: [{ ...M, in_stock: 1 }, { ...L, in_stock: 0 }],
         colors: [blue, black],
-        images: ['/images/bikes/fwd-spt29-26-1.jpg'],
+        images: ['/images/bikes/mtb-graphite.jpg'],
         specs: [
             ['Общие', 'Вес', '14,8 кг'],
             ['Рама и амортизация', 'Материал рамы', 'Алюминий'],
@@ -127,7 +128,7 @@ export const bikes = [
         model_year: 2026, weight: 13.9, rating: 4.9, reviews_count: 18, badge: 'new', popularity: 85,
         sizes: [{ ...S, in_stock: 1 }, { ...M, in_stock: 1 }, { ...L, in_stock: 1 }],
         colors: [graphite, white],
-        images: ['/images/bikes/mer-crw20-26-1.jpg'],
+        images: ['/images/bikes/hybrid-silver.jpg'],
         specs: [
             ['Общие', 'Назначение', 'Город, загородные дороги'],
             ['Общие', 'Вес', '13,9 кг'],
@@ -148,7 +149,7 @@ export const bikes = [
         model_year: 2026, weight: 13.7, rating: 4.8, reviews_count: 11, badge: null, popularity: 70,
         sizes: [{ ...XS, in_stock: 1 }, { ...S, in_stock: 1 }, { ...M, in_stock: 1 }],
         colors: [mint, white],
-        images: ['/images/bikes/mer-crw20w-26-1.jpg'],
+        images: ['/images/bikes/hybrid-silver.jpg'],
         specs: [
             ['Общие', 'Вес', '13,7 кг'],
             ['Рама и амортизация', 'Материал рамы', 'Алюминий, заниженная'],
@@ -166,7 +167,7 @@ export const bikes = [
         model_year: 2025, weight: 14.5, rating: 4.5, reviews_count: 7, badge: null, popularity: 55,
         sizes: [{ ...M, in_stock: 1 }, { ...L, in_stock: 1 }],
         colors: [black, darkGreen],
-        images: ['/images/bikes/fwd-a94-26-1.jpg'],
+        images: ['/images/bikes/hybrid-silver.jpg'],
         specs: [
             ['Общие', 'Вес', '14,5 кг'],
             ['Трансмиссия', 'Количество скоростей', '21'],
@@ -182,7 +183,7 @@ export const bikes = [
         model_year: 2026, weight: 12.4, rating: 4.7, reviews_count: 22, badge: 'hit', popularity: 90,
         sizes: [{ frame_size: 'S', min_height: 150, max_height: 190, in_stock: 1 }],
         colors: [cream, black, yellow],
-        images: ['/images/bikes/shz-goav-26-1.jpg'],
+        images: ['/images/bikes/folding-cream.jpg'],
         specs: [
             ['Общие', 'Назначение', 'Город, складной'],
             ['Общие', 'Вес', '12,4 кг'],
@@ -202,7 +203,7 @@ export const bikes = [
         model_year: 2025, weight: 16.0, rating: 4.5, reviews_count: 13, badge: null, popularity: 65,
         sizes: [{ ...S, in_stock: 1 }, { ...M, in_stock: 1 }],
         colors: [pink, white, mint],
-        images: ['/images/bikes/stl-nav300-26-1.jpg'],
+        images: ['/images/bikes/folding-cream.jpg'],
         specs: [
             ['Общие', 'Вес', '16 кг'],
             ['Трансмиссия', 'Количество скоростей', '3, планетарная втулка'],
@@ -219,7 +220,7 @@ export const bikes = [
         model_year: 2025, weight: 15.5, rating: 4.3, reviews_count: 5, badge: null, popularity: 40,
         sizes: [{ ...M, in_stock: 1 }, { ...L, in_stock: 1 }, { ...XL, in_stock: 1 }],
         colors: [black, blue],
-        images: ['/images/bikes/alt-city7-26-1.jpg'],
+        images: ['/images/bikes/hybrid-silver.jpg'],
         specs: [
             ['Общие', 'Вес', '15,5 кг'],
             ['Трансмиссия', 'Количество скоростей', '7'],
@@ -235,7 +236,7 @@ export const bikes = [
         model_year: 2026, weight: 10.2, rating: 4.9, reviews_count: 10, badge: 'new', popularity: 75,
         sizes: [{ ...M, in_stock: 1 }, { ...L, in_stock: 1 }],
         colors: [graphite, red],
-        images: ['/images/bikes/gnt-car4-26-1.jpg'],
+        images: ['/images/bikes/hybrid-silver.jpg'],
         specs: [
             ['Общие', 'Назначение', 'Шоссе, дальние поездки'],
             ['Общие', 'Вес', '10,2 кг'],
@@ -256,7 +257,7 @@ export const bikes = [
         model_year: 2025, weight: 11.3, rating: 4.4, reviews_count: 4, badge: null, popularity: 35,
         sizes: [{ ...S, in_stock: 1 }, { ...M, in_stock: 1 }, { ...L, in_stock: 1 }],
         colors: [white, black],
-        images: ['/images/bikes/stl-road16-26-1.jpg'],
+        images: ['/images/bikes/hybrid-silver.jpg'],
         specs: [
             ['Общие', 'Вес', '11,3 кг'],
             ['Трансмиссия', 'Количество скоростей', '16'],
@@ -272,7 +273,7 @@ export const bikes = [
         model_year: 2026, weight: 13.0, rating: 4.6, reviews_count: 8, badge: null, popularity: 50,
         sizes: [{ frame_size: '13″', min_height: 130, max_height: 155, in_stock: 1 }],
         colors: [blue, orange, black],
-        images: ['/images/bikes/fwd-teen24-26-1.jpg'],
+        images: ['/images/bikes/mtb-graphite.jpg'],
         specs: [
             ['Общие', 'Вес', '13 кг'],
             ['Трансмиссия', 'Количество скоростей', '18'],
@@ -288,7 +289,7 @@ export const bikes = [
         model_year: 2025, weight: 13.4, rating: 4.5, reviews_count: 6, badge: null, popularity: 38,
         sizes: [{ frame_size: '12″', min_height: 125, max_height: 150, in_stock: 1 }],
         colors: [pink, mint],
-        images: ['/images/bikes/stl-pil24g-26-1.jpg'],
+        images: ['/images/bikes/folding-cream.jpg'],
         specs: [
             ['Общие', 'Вес', '13,4 кг'],
             ['Трансмиссия', 'Количество скоростей', '6'],
@@ -303,7 +304,7 @@ export const bikes = [
         model_year: 2026, weight: 8.5, rating: 4.8, reviews_count: 30, badge: 'hit', popularity: 88,
         sizes: [{ frame_size: '14″', min_height: 100, max_height: 125, in_stock: 1 }],
         colors: [red, blue, pink, yellow],
-        images: ['/images/bikes/kid-1412-26-1.jpg'],
+        images: ['/images/bikes/folding-cream.jpg'],
         specs: [
             ['Общие', 'Возраст', '4–6 лет'],
             ['Общие', 'Вес', '8,5 кг'],
@@ -323,7 +324,7 @@ export const bikes = [
         model_year: 2026, weight: 10.6, rating: 4.7, reviews_count: 12, badge: null, popularity: 62,
         sizes: [{ frame_size: '11″', min_height: 115, max_height: 140, in_stock: 1 }],
         colors: [orange, mint, black],
-        images: ['/images/bikes/kid-2006-26-1.jpg'],
+        images: ['/images/bikes/mtb-graphite.jpg'],
         specs: [
             ['Общие', 'Возраст', '7–10 лет'],
             ['Общие', 'Вес', '10,6 кг'],

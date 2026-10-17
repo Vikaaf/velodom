@@ -1,0 +1,238 @@
+/* ===== Дизайн-токены из UI-kit макета ===== */
+:root {
+  --accent: #27A65A;        /* акцентный */
+  --accent-dark: #2A804F;   /* акцент тёмный */
+  --text: #18201D;          /* текст */
+  --text-muted: #4C5350;    /* пояснения */
+  --white: #FFFFFF;
+  --bg: #F5F7F5;            /* фон */
+  --bg-active: #E7F6EC;     /* фон (активный) */
+  --border: #DBDBDB;        /* обводка (неактив) */
+
+  --radius-s: 10px;
+  --radius-m: 16px;
+  --radius-l: 28px;
+  --radius-pill: 999px;
+  --shadow: 0 12px 30px rgba(22, 36, 27, 0.08);
+
+  --container: 1296px;
+  --gutter: 72px;
+}
+
+/* ===== Базовые стили ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* подвал прижат к низу даже на короткой странице */
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.4;
+  color: var(--text);
+  background: var(--bg);
+}
+
+h1, h2, h3, p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.container {
+  max-width: calc(var(--container) + 2 * var(--gutter));
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.section-title {
+  font-size: 42px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+/* ===== Кнопки ===== */
+.btn {
+  display: inline-block;
+  text-align: center;
+  padding: 13px 24px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-pill);
+  font: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.btn--primary {
+  background: var(--accent);
+  color: var(--white);
+}
+
+.btn--primary:hover {
+  background: var(--accent-dark);
+}
+
+.btn--outline {
+  background: var(--white);
+  border-color: var(--border);
+  color: var(--text);
+}
+
+.btn--outline:hover {
+  border-color: var(--accent);
+}
+
+.btn--dark {
+  background: var(--text);
+  color: var(--white);
+}
+
+/* ===== Шапка ===== */
+.header {
+  background: var(--white);
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 86px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.nav {
+  display: flex;
+  gap: 30px;
+}
+
+.nav__link {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.nav__link:hover,
+.nav__link--active {
+  color: var(--accent);
+}
+
+.nav__link--active {
+  font-weight: 700;
+}
+
+.header__contacts {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.header__phone {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.header__phone a {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.header__phone span {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+main {
+  flex: 1;
+}
+
+/* ===== Подвал ===== */
+.footer {
+  background: var(--text);
+  color: var(--white);
+  padding: 62px 0 34px;
+}
+
+.footer__content {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 44px;
+}
+
+.footer__about {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  max-width: 350px;
+  font-size: 14px;
+}
+
+.footer__logo {
+  font-size: 26px;
+  font-weight: 800;
+}
+
+.footer__phone {
+  color: var(--accent);
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.footer__col {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.footer__title {
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.footer__col a:hover {
+  color: var(--accent);
+}
+
+.footer__bottom {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+}
+
+.footer__bottom a {
+  color: var(--accent);
+}
+
+/* ===== Заглушка страницы ===== */
+.page-stub {
+  padding: 88px 0;
+}
+
+.page-stub p {
+  margin-top: 16px;
+  color: var(--text-muted);
+}

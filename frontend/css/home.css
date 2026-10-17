@@ -1,0 +1,357 @@
+/* ===== Первый экран ===== */
+.hero {
+  padding-bottom: 0;
+  background: var(--white);
+}
+
+.hero__box {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  padding: 56px;
+  border-radius: var(--radius-l);
+  background: var(--bg-active);
+}
+
+.hero__offer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  flex: 1;
+}
+
+.hero__label {
+  padding: 7px 13px;
+  border-radius: var(--radius-pill);
+  background: var(--white);
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.hero__title {
+  font-size: 64px;
+  font-weight: 800;
+  line-height: 1.02;
+}
+
+.hero__subtitle {
+  max-width: 510px;
+  font-size: 20px;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+.hero__actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.hero__hint {
+  font-size: 16px;
+  color: var(--text-muted);
+}
+
+.hero__photo {
+  width: 582px;
+  height: 540px;
+  border-radius: var(--radius-l);
+  object-fit: cover;
+}
+
+/* ===== Доверие ===== */
+.trust {
+  padding: 54px 0;
+  background: var(--white);
+}
+
+.trust__list {
+  display: flex;
+  justify-content: space-between;
+}
+
+.trust__item {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.trust__item div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.trust__item b {
+  font-size: 20px;
+}
+
+.trust__item span {
+  color: var(--text-muted);
+}
+
+.trust__icon {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--bg-active);
+  color: var(--accent);
+  font-weight: 800;
+}
+
+/* ===== Как это работает ===== */
+.how {
+  padding: 88px 0;
+  background: var(--white);
+}
+
+.how__steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 32px;
+}
+
+.info-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 24px;
+  border-radius: var(--radius-m);
+  background: var(--bg);
+}
+
+.info-card__num {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--bg-active);
+  color: var(--accent);
+  font-size: 18px;
+}
+
+.info-card h3 {
+  font-size: 19px;
+  font-weight: 400;
+}
+
+.info-card p {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+/* ===== Опрос ===== */
+.quiz {
+  padding: 88px 0;
+  background: var(--bg);
+}
+
+.quiz__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 40px;
+}
+
+.quiz__step {
+  margin-bottom: 10px;
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.quiz__hint {
+  max-width: 360px;
+  font-size: 15px;
+  color: var(--text-muted);
+}
+
+.quiz__progress {
+  margin: 34px 0;
+}
+
+.quiz__bar {
+  height: 8px;
+  border-radius: var(--radius-pill);
+  background: var(--border);
+  overflow: hidden;
+}
+
+.quiz__bar-fill {
+  height: 100%;
+  border-radius: var(--radius-pill);
+  background: var(--accent);
+  transition: width 0.3s;
+}
+
+.quiz__stages {
+  display: flex;
+  justify-content: space-between;
+  margin: 14px 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.quiz__stages .is-done {
+  color: var(--accent);
+}
+
+.quiz__stages .is-current {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.quiz__card {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 34px;
+  border-radius: var(--radius-l);
+  background: var(--white);
+  box-shadow: var(--shadow);
+}
+
+.quiz__question {
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.quiz__options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.quiz__options--compact {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.quiz-option {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 22px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-m);
+  background: var(--bg);
+  font: inherit;
+  color: var(--text);
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+
+.quiz-option:hover {
+  border-color: var(--accent);
+}
+
+.quiz-option.is-active {
+  border: 2px solid var(--accent);
+  padding: 21px; /* компенсируем толстую рамку, чтобы карточка не прыгала */
+  background: var(--bg-active);
+}
+
+.quiz__options--compact .quiz-option {
+  flex-direction: row;
+  align-items: center;
+  padding: 16px 18px;
+}
+
+.quiz__options--compact .quiz-option.is-active {
+  padding: 15px 17px;
+}
+
+.quiz-option__icon {
+  font-size: 26px;
+  line-height: 1;
+  color: var(--accent);
+}
+
+.quiz-option__swatch {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+}
+
+.quiz-option__title {
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.quiz-option__text {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.quiz-budget {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.quiz-budget__field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 15px;
+}
+
+.quiz__controls {
+  display: flex;
+  justify-content: space-between;
+}
+
+.quiz__note,
+.quiz__loading {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* ===== Популярные ===== */
+.popular {
+  padding: 88px 0;
+  background: var(--bg);
+}
+
+.popular .bike-grid {
+  margin-bottom: 28px;
+}
+
+/* ===== Финальный призыв ===== */
+.cta {
+  padding: 70px 0;
+  background: var(--accent);
+  color: var(--white);
+}
+
+.cta__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
+.cta__title {
+  max-width: 700px;
+  margin-bottom: 10px;
+  font-size: 44px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.cta p {
+  font-size: 17px;
+}

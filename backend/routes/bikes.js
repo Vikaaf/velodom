@@ -3,19 +3,104 @@ import { db } from '../db/db.js';
 
 const router = Router();
 
-// GET /api/bikes — список велосипедов для каталога
-router.get('/', (req, res) => {
-    const bikes = db.prepare(`
-    SELECT id, sku, name, brand, type, price, old_price, wheel_size, speeds,
-           rating, reviews_count, badge,
-           (SELECT url FROM bike_images
-             WHERE bike_images.bike_id = bikes.id
-             ORDER BY sort_order LIMIT 1) AS image
-    FROM bikes
-    ORDER BY popularity DESC
-  `).all();
+// порядок сортировки: значение из адреса → кусок SQL
+const SORTS = {
+    popular: 'popularity DESC',
+    price_asc: 'price ASC',
+    price_desc: 'price DESC',
+    new: 'created_at DESC, model_year DESC',
+    rating: 'rating DESC',
+};
 
-    res.json(bikes);
+// превращаем ?type=city,hybrid в массив ['city', 'hybrid']
+function toList(value) {
+    return value ? String(value).split(',').filter(Boolean) : [];
+}
+
+// GET /api/bikes?type=mountain&maxPrice=50000&sort=price_asc — каталог с фильтрами
+router.get('/', (req, res) => {
+    const q = req.query;
+    const conditions = []; // кусочки WHERE
+    const params = [];     // значения для «?» в том же порядке
+
+    const types = toList(q.type);
+    if (types.length) {
+        conditions.push(`type IN (${types.map(() => '?').join(', ')})`);
+        params.push(...types);
+    }
+
+    const brands = toList(q.brand);
+    if (brands.length) {
+        conditions.push(`brand IN (${brands.map(() => '?').join(', ')})`);
+        params.push(...brands);
+    }
+
+    if (q.minPrice) {
+        conditions.push('price >= ?');
+        params.push(Number(q.minPrice));
+    }
+    if (q.maxPrice) {
+        conditions.push('price <= ?');
+        params.push(Number(q.maxPrice));
+    }
+
+    const genders = toList(q.gender);
+    if (genders.length) {
+        conditions.push(`gender IN (${genders.map(() => '?').join(', ')})`);
+        params.push(...genders);
+    }
+
+    const ages = toList(q.age);
+    if (ages.length) {
+        conditions.push(`age_group IN (${ages.map(() => '?').join(', ')})`);
+        params.push(...ages);
+    }
+
+    // размер рамы и наличие лежат в другой таблице, поэтому EXISTS:
+    // «существует размер этого велосипеда, подходящий под условие»
+    const frames = toList(q.frame);
+    if (frames.length) {
+        conditions.push(`EXISTS (SELECT 1 FROM bike_sizes
+      WHERE bike_sizes.bike_id = bikes.id
+        AND frame_size IN (${frames.map(() => '?').join(', ')}))`);
+        params.push(...frames);
+    }
+
+    if (q.inStock === '1') {
+        conditions.push('EXISTS (SELECT 1 FROM bike_sizes WHERE bike_sizes.bike_id = bikes.id AND in_stock = 1)');
+    }
+
+    if (q.discount === '1') {
+        conditions.push('old_price > price');
+    }
+
+    if (q.search) {
+        conditions.push('(name LIKE ? OR brand LIKE ?)');
+        params.push(`%${q.search}%`, `%${q.search}%`);
+    }
+
+    const where = conditions.length ? 'WHERE ' + conditions.join(' AND ') : '';
+    const orderBy = SORTS[q.sort] || SORTS.popular;
+    const limit = Number(q.limit) || 12;
+    const offset = Number(q.offset) || 0;
+
+    const { total } = db.prepare(`SELECT COUNT(*) AS total FROM bikes ${where}`).get(...params);
+
+    const bikes = db.prepare(`
+        SELECT id, sku, name, brand, type, price, old_price, wheel_size, speeds,
+               rating, reviews_count, badge,
+               (SELECT url FROM bike_images
+                WHERE bike_images.bike_id = bikes.id
+                ORDER BY sort_order LIMIT 1) AS image,
+               (SELECT group_concat(frame_size, ', ') FROM bike_sizes
+                WHERE bike_sizes.bike_id = bikes.id) AS frame_sizes
+        FROM bikes
+                 ${where}
+        ORDER BY ${orderBy}
+        LIMIT ? OFFSET ?
+    `).all(...params, limit, offset);
+
+    res.json({ total, bikes });
 });
 
 // GET /api/bikes/5 — один велосипед со всеми подробностями

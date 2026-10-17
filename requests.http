@@ -1,0 +1,5 @@
+### Подбор: мужчина 175 см, город, синий, 15–40 тыс.
+POST http://localhost:3000/api/quiz
+Content-Type: application/json
+
+{ "height": 165, "style": "city", "color": "blue", "minPrice": 15000, "maxPrice": 40000, "discount": 0, "gender": "male", "age": "adult" }

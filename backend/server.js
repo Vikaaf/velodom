@@ -5,7 +5,7 @@ import quizRouter from './routes/quiz.js';
 
 const app = express();
 app.use(express.json());
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // отдаём файлы сайта из папки frontend
 app.use(express.static(path.join(import.meta.dirname, '..', 'frontend')));

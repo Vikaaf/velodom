@@ -16,6 +16,7 @@
   "author": "",
   "license": "ISC",
   "type": "module",
+  "engines": { "node": ">=24" },
   "bugs": {
     "url": "https://github.com/Vikaaf/velodom/issues"
   },
